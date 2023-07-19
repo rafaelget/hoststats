@@ -1,0 +1,4 @@
+* * * * * cd /home/ubuntu/count && ./counter.sh
+* * * * * sleep 15; cd /home/ubuntu/count && ./counter.sh
+* * * * * sleep 30; cd /home/ubuntu/count && ./counter.sh
+* * * * * sleep 45; cd /home/ubuntu/count && ./counter.sh
