@@ -1,4 +1,6 @@
 <?php
+$auth = false;
+
 function authenticate($user, $pass) {
     $users = [
         'username' => 'password'
@@ -10,7 +12,7 @@ function authenticate($user, $pass) {
     }
 }
 
-if ( empty($_SERVER['PHP_AUTH_USER']) || empty($_SERVER['PHP_AUTH_PW']) || !authenticate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
+if ( $auth && (empty($_SERVER['PHP_AUTH_USER']) || empty($_SERVER['PHP_AUTH_PW']) || !authenticate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) ) {
     header('WWW-Authenticate: Basic realm="Please Login"');
     header('Content-Type: application/json; charset=utf-8');
     header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
