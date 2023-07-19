@@ -1,6 +1,12 @@
 * * * * * cd /home/ubuntu/hoststats/count && ./counter.sh
+* * * * * sleep 5; cd /home/ubuntu/hoststats/count && ./counter.sh
 * * * * * sleep 10; cd /home/ubuntu/hoststats/count && ./counter.sh
+* * * * * sleep 15; cd /home/ubuntu/hoststats/count && ./counter.sh
 * * * * * sleep 20; cd /home/ubuntu/hoststats/count && ./counter.sh
+* * * * * sleep 25; cd /home/ubuntu/hoststats/count && ./counter.sh
 * * * * * sleep 30; cd /home/ubuntu/hoststats/count && ./counter.sh
+* * * * * sleep 35; cd /home/ubuntu/hoststats/count && ./counter.sh
 * * * * * sleep 40; cd /home/ubuntu/hoststats/count && ./counter.sh
+* * * * * sleep 45; cd /home/ubuntu/hoststats/count && ./counter.sh
 * * * * * sleep 50; cd /home/ubuntu/hoststats/count && ./counter.sh
+* * * * * sleep 55; cd /home/ubuntu/hoststats/count && ./counter.sh
