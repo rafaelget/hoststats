@@ -1,1 +1,3 @@
+executar dentro da pasta hoststats
+
 docker run -d -p 8090:80 --name php-stats -v "$PWD/count":/var/www/count  -v "$PWD/code":/var/www/html php:8.2-apache
