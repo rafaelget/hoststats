@@ -13,6 +13,7 @@ function authenticate($user, $pass) {
 }
 
 if ( $auth && (empty($_SERVER['PHP_AUTH_USER']) || empty($_SERVER['PHP_AUTH_PW']) || !authenticate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) ) {
+    header("Access-Control-Allow-Origin: *");
     header('WWW-Authenticate: Basic realm="Please Login"');
     header('Content-Type: application/json; charset=utf-8');
     header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
@@ -61,6 +62,7 @@ if ( ! empty($error) ){
     ];
 }
 
+header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json; charset=utf-8');
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
