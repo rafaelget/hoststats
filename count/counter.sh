@@ -29,7 +29,7 @@ disk=`df --output=pcent /dev/root | grep -o '[0-9]*' |awk '{print $1}'`
 
 echo "$cpu,$memory,$disk" >> containers_temp.csv
 
-docker ps --format "{{.Names}}" >> containers_temp.csv
+docker ps --format "{{.Names}}##{{.Image}}" >> containers_temp.csv
 
 cp containers_temp.csv containers.csv
 
