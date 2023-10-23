@@ -20,7 +20,7 @@ usedRam="${ADDR[2]}"
 memory="$(($usedRam*100/$totalRam))"
 
 #calcular o uso de disco
-disk=`df --output=pcent /dev/root | grep -o '[0-9]*' |awk '{print $1}'`
+disk=`df --output=pcent / | grep -o '[0-9]*' |awk '{print $1}'`
 
 #contar numero de containers rodando
 #containers=`docker ps -q $1 | wc -l`
