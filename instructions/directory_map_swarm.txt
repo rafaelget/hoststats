@@ -1,2 +1,4 @@
 Path in App: /var/www/count/
 Path on Host: /home/ubuntu/hoststats/count/
+
+deviggy/hoststats:1
