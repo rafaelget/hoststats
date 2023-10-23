@@ -7,11 +7,13 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-$auth = false;
+$auth = getenv('AUTH_LOGIN') ?? false;
 
 function authenticate($user, $pass) {
+    $username = getenv('AUTH_LOGIN') ?? 'username';
+    $password = getenv('AUTH_PASSWORD') ?? 'password';
     $users = [
-        'username' => 'password'
+        $username => $password
     ];
     if (isset($users[$user]) && ($users[$user] === $pass)) {
         return true;
