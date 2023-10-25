@@ -1,0 +1,8 @@
+1 - install aws cli:
+sudo apt-get install awscli
+
+2 - setup default aws profile
+aws configure
+
+3 - add to crontab
+0 */6 * * * /home/ubuntu/hoststats/s3/s3.sh > /dev/null 2>&1
