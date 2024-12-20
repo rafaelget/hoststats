@@ -35,46 +35,14 @@ if ( $auth && (empty($_SERVER['PHP_AUTH_USER']) || empty($_SERVER['PHP_AUTH_PW']
     exit;
 }
 
-$path = '../count/containers.csv';
-$error = null;
-if ( file_exists($path) ){
-    $lines = explode(PHP_EOL,file_get_contents($path));
-
-    $first = array_shift($lines);
-    array_pop($lines);
-
-    $data = explode(',',$first);
-    if ( count($data) === 3 ){
-        $response = [
-            'status'    => 1,
-            'cpu'       => intval($data[0]),
-            'memory'    => intval($data[1]),
-            'disk'      => intval($data[2]),
-            'containers_count' => count($lines),
-            'containers'=> $lines,
-            'usage'     => [],
-        ];
-    } else {
-        $error = 'data file is invalid';
-    }
-} else {
-    $error = 'data file not found';
-}
-
-if ( ! empty($error) ){
-    $response = [
-        'status'    => 0,
-        'message'   => $error,
-    ];
-}
-
 $path = '../count/usage.json';
+$error = null;
 if ( file_exists($path) ){
     $json = file_get_contents($path);
 
     $lines = explode("\n", $json);
 
-    $usage = [];
+    $containers = [];
 
     foreach ($lines as $line) {
         $data = json_decode($line, true);
@@ -92,21 +60,25 @@ if ( file_exists($path) ){
             $mem = $mem * 1000;
         }
 
-//        $name = explode('.', $data['Name']);
-//        array_pop($name);
+        $name = explode('.', $data['Name']);
+        array_pop($name);
 
         $temp = [
-//            'name'  => join('.',$name),
-            'name'  => $data['Name'],
+            'name'  => join('.',$name),
             'cpu'   => floatval(str_replace('%','',$data['CPUPerc'])),
             'mem'   => floatval($mem),
         ];
 
-        $usage[] = $temp;
+        $containers[] = $temp;
     }
 
-    $response['usage'] = $usage;
+    $response = [
+        'status'        => 1,
+        'containers'    => $containers,
+    ];
 
+} else {
+    $error = 'data file not found';
 }
 
 if ( ! empty($error) ){

@@ -34,3 +34,7 @@ docker ps --format "{{.Names}}##{{.Image}}##{{.RunningFor}}" >> containers_temp.
 cp containers_temp.csv containers.csv
 
 echo "CPU: $cpu% - Mem: $memory% - Disk: $disk%"
+
+> usage_temp.json
+docker stats --format '{{json .}}' --no-stream >> usage_temp.json
+cp usage_temp.json usage.json

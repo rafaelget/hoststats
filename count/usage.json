@@ -1,0 +1,2 @@
+{"BlockIO":"48.6MB / 12.3kB","CPUPerc":"0.56%","Container":"10f153978c61","ID":"10f153978c61","MemPerc":"11.04%","MemUsage":"433MiB / 3.831GiB","Name":"mysql8_db8.1.8fgvlwb6t4untjie4c4egtsnj","NetIO":"746B / 0B","PIDs":"38"}
+{"BlockIO":"35.2MB / 8.19kB","CPUPerc":"0.00%","Container":"3b12add81a58","ID":"3b12add81a58","MemPerc":"1.12%","MemUsage":"43.8MiB / 3.831GiB","Name":"mysql8_phpmyadmin8.1.ygrsnvug208ut6lm4mgpbzdai","NetIO":"746B / 0B","PIDs":"6"}
