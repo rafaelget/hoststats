@@ -5,7 +5,7 @@ cpu=$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]
 
 #calcular o uso de memoria
 # grab the second line of the ouput produced by the command: free -g (displays output in Gb)
-secondLine=$(free -g | sed -n '2p')
+secondLine=$(free -m | sed -n '2p')
 
 #split the string in secondLine into an array
 read -ra ADDR <<< "$secondLine"
