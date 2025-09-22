@@ -13,8 +13,11 @@ read -ra ADDR <<< "$secondLine"
 #get the total RAM from array
 totalRam="${ADDR[1]}"
 
+#get the available RAM from array
+availableRam="${ADDR[6]}"
+
 #get the used RAM from array
-usedRam="${ADDR[2]}"
+usedRam="$(($totalRam-$availableRam))"
 
 # calculate and display the percentage
 memory="$(($usedRam*100/$totalRam))"
@@ -29,7 +32,7 @@ disk=`df --output=pcent / | grep -o '[0-9]*' |awk '{print $1}'`
 
 echo "$cpu,$memory,$disk" >> containers_temp.csv
 
-docker ps --format "{{.Names}}##{{.Image}}##{{.RunningFor}}" >> containers_temp.csv
+docker ps --format "{{.Names}}##{{.Image}}##{{.RunningFor}}##{{.Status}}" >> containers_temp.csv
 
 cp containers_temp.csv containers.csv
 
