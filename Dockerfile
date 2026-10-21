@@ -9,3 +9,4 @@ ENV AUTH_PASSWORD=${AUTH_PASSWORD}
 
 COPY ./code/index.php /var/www/html/index.php
 COPY ./count/containers.csv /var/www/count/containers.csv
+COPY ./placarsoft.ini /usr/local/etc/php/conf.d/z_placarsoft.ini
